@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css"
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -27,6 +29,7 @@ const skillColor = "navy";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <style define:vars={{ skillColor }}>
+      
       h1 {
         color: purple;
         font-size: 4rem;
