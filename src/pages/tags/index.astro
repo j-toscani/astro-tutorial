@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pageTilte = "Choose a Tag!";
+
+const posts = await Astro.glob("../posts/*.md");
+const tags = new Set<string>();
+posts.forEach((post) =>
+    post.frontmatter.tags.forEach((tag: string) => tags.add(tag))
+);
+
+const tagsArray = Array.from(tags);
+---
+
+<BaseLayout pageTitle={pageTilte}>
+    <ul>
+        {
+            tagsArray.map((tag) => (
+                <li>
+                    <a href={`/tags/${tag}`}>{tag}</a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>
